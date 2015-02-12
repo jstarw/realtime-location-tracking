@@ -1,0 +1,13 @@
+{
+  "name": "realtime-location-tracking",
+  "version": "0.0.1",
+  "description": "A realtime location tracking application using socket.io",
+  "main": "index.js",
+  "author": "Andrew Warkentin & Jonathan Wen",
+  "private": true,
+  "license": "BSD",
+  "dependencies": {
+    "express": "^3.4.8",
+    "socket.io": "^1.3.3"
+  }
+}
