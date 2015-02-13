@@ -4,20 +4,20 @@ var path = require('path');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'master')));
 
-
-// app.get('/mobile', function(req, res){
-//   res.sendfile('public/mobile/index.html');
-// });
-
-app.get('/master', function(req, res){
-  res.sendfile('public/master/index.html');
+app.get('/', function(req, res){
+  res.sendfile('index.html');
 });
 
 io.on('connection', function(socket){
+	console.log("a client Connected");
+	socket.emit('message', 'If you see this message, then socket.io is working correctly');
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
+  });
+  socket.on('disconnect', function(){
+    console.log('a client disconnected');
   });
 });
 

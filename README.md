@@ -1,18 +1,19 @@
 
-# Socket.IO Chat
+# Real-time Location Tracking
 
-A simple chat demo for socket.io
+A webapp for real-time visualization of mobile GPS data unsing Socket.io.
+GPS data is sent through web sockets to a web client which plots them in real time on a map.
 
 ## How to use
-
+### For the web interface:
 ```
-$ cd realtime-location-tracking
+$ cd realtime-location-tracking/web
 $ npm install
 $ node index.js
 ```
+And point your browser to `http://localhost:3000/`
 
-And point your browser to `http://localhost:3000/master` for the master page,
-and `http://localhost:3000/mobile` for the mobile page.
+HTML, CSS, and Javascript for the web interface can be found in the "master" folder.
 
 ## Features
 The app will track the lcoations in real time of multiple users.
