@@ -7,9 +7,9 @@ var io = require('socket.io')(http);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get('/mobile', function(req, res){
-  res.sendfile('public/mobile/index.html');
-});
+// app.get('/mobile', function(req, res){
+//   res.sendfile('public/mobile/index.html');
+// });
 
 app.get('/master', function(req, res){
   res.sendfile('public/master/index.html');
