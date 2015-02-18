@@ -8,3 +8,84 @@ map {
 .scroll {
   height: 100%;
 }
+
+.header {
+	width: 96%;
+	height: 9%;
+	margin: 7% 2% 0% 2%;
+	background-color: white;
+	position: absolute;
+	z-index: 99;
+    box-shadow:0px 0px 10px 2px #ABABAB;
+ 	-webkit-box-shadow:0px 0px 10px 2px #ABABAB;
+ 	-moz-box-shadow:0px 0px 20px 2px #ABABAB;
+}
+
+.header-col {
+	text-align: center;
+}
+
+.row1 {
+	height: 100%;
+}
+
+.header-icon {
+	font-size: 10vw;
+}
+
+.main-status {
+	font-size: 6vw;
+	margin-top: 5%;
+}
+
+.start-button {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 0px !important;
+}
+
+.location-btn {
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	bottom: 10%;
+	right: 5%;
+	background-color: #13BE00;
+	border-radius: 50%;
+	text-align: center;
+	padding: 19px 5px 0px 0px;
+	box-shadow:0px 0px 10px 4px #ABABAB;
+ 	-webkit-box-shadow:0px 0px 10px 4px #ABABAB;
+ 	-moz-box-shadow:0px 0px 20px 4px #ABABAB;
+}
+
+.location-dot {
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	bottom: 20%;
+	right: 15%;
+	background-color: blue;
+	border-radius: 50%;
+	text-align: center;
+	padding: 19px 5px 0px 0px;
+	box-shadow:0px 0px 10px 4px #ABABAB;
+ 	-webkit-box-shadow:0px 0px 10px 4px #ABABAB;
+ 	-moz-box-shadow:0px 0px 20px 4px #ABABAB;
+}
+
+.ion-navigate {
+	color: white;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.no-padding {
+	padding: 0;
+}
