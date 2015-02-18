@@ -60,15 +60,15 @@ map {
 }
 
 .location-dot {
-	width: 15px;
-	height: 15px;
+	width: 17px;
+	height: 17px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	border: 2px solid #FFF;
 	background-color: blue;
 	border-radius: 50%;
 	text-align: center;
-	padding: 19px 5px 0px 0px;
 	box-shadow:0px 0px 10px 4px #ABABAB;
  	-webkit-box-shadow:0px 0px 10px 4px #ABABAB;
  	-moz-box-shadow:0px 0px 20px 4px #ABABAB;

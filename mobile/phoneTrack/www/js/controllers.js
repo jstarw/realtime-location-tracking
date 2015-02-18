@@ -3,6 +3,11 @@ angular.module('starter.controllers', [])
 .controller('MainCtrl', function($scope, $ionicLoading) {
 // .controller('MainCtrl', ['$scope', function ($scope, $ionicLoading) {
 
+  var socket = io('http://blistering-rottweiler-26-196898.use1-2.nitrousbox.com/');
+
+  $scope.username = "Drew" //For testing
+
+  $scope.findingLocation = false;
   var tracking = false;
   $scope.showLocation = false;
   var mapOptions = {
@@ -19,30 +24,43 @@ angular.module('starter.controllers', [])
 
     if(!tracking) {
       tracking = true;
+      
+      // If the map already exists, use it.
       if (!$scope.map) {
         return;
       }
 
-      //Show loading message
-      $scope.loading = $ionicLoading.show({
-        content: 'Getting current location...',
-        showBackdrop: false
-      });
+      // Show loading icon
+      $scope.showSpinner(); //Show the location loading spinner
 
       console.log("Finding Location");
       var myLocation = navigator.geolocation.watchPosition(function (pos) {
         console.log('Got pos', pos);
-        $scope.showLocation = true;
+        
+
+        //Send location to websocket
+        console.log('emitting to socket');
+        // socket.emit('loc', 'username: ' + pos.coords.latitude + ' ' + pos.coords.longitude); //True location 
+        socket.emit('loc', {username: $scope.username, latitude: pos.coords.latitude, longitude: pos.coords.longitude}); //True location 
+
+        //Center the Map
         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        $scope.loading.hide();
-        //Beam position through web socket, include user id of some sort.
+        $scope.showLocation = true; //Show the location dot on the map.
+        $scope.hideSpinner(); //Hide the location fetching spinner
+
+        //TODO: Update UI so user knows that tracking has begun
+    
       }, function (error) {
-        // alert('Unable to get location: ' + error.message);
-        toggleSpinner();
+        $scope.showSpinner(); //Show the location loading spinner
         //Beam error through websocket
       }, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     } else {
       tracking = false;
+      $scope.showLocation = false;
+      $scope.hideSpinner(); //Hide the location loading spinner
+
+      //TODO: Change the UI so it reflects that location is not being tracked.
+
       console.log('stopping tracking');
       if(myLocation) {
         navigator.geolocation.clearWatch(myLocation);
@@ -53,8 +71,15 @@ angular.module('starter.controllers', [])
 
   };
 
-  $scope.toggleSpinner = function() {
-    //Toggle the spinner here
+  $scope.showSpinner = function() {
+    console.log("Showing Spinner");
+    $scope.findingLocation = true;
   };
+
+  $scope.hideSpinner = function() {
+    console.log("Hiding Spinner");
+    $scope.findingLocation = false;
+  };
+    
 
 });

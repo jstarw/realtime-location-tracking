@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Master Client</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <h1>This is the master page</h1>
   <p>If you click on me and I dissapear, then jquery is working.</p>
-  <div id="messages"></div>
+  <div id="location"></div>
 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
@@ -16,15 +16,12 @@
   <script src="/main.js"></script>
 	
 	<script>
-	  var socket = io();
-	  $('form').submit(function(){
-	    socket.emit('chat message', $('#m').val());
-	    $('#m').val('');
-	    return false;
-	  });
-	  socket.on('message', function(msg){
-	    $('#messages').append($('<li>').text(msg));
-	  });
+    var socket = io();
+
+    socket.on('loc', function(loc){
+      console.log("Got Location");
+      $('#location').append($('<li>').text('username: ' + loc.username + ', latitude: ' + loc.latitude + ', longitude: ' + loc.longitude))
+    });
 	</script>
 </body>
 </html>
