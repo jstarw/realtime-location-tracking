@@ -56,13 +56,14 @@ angular.module('starter.controllers', [])
       }, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     } else {
       tracking = false;
-      $scope.showLocation = false;
+      $scope.showLocation = false; //Hide the location dot
       $scope.hideSpinner(); //Hide the location loading spinner
 
       //TODO: Change the UI so it reflects that location is not being tracked.
 
       console.log('stopping tracking');
       if(myLocation) {
+        //If currently watching location, cancel it.
         navigator.geolocation.clearWatch(myLocation);
       }
     }

@@ -16,4 +16,4 @@ And point your browser to `http://localhost:3000/`
 HTML, CSS, and Javascript for the web interface can be found in the "master" folder.
 
 ## Features
-The app will track the lcoations in real time of multiple users.
+The app will track the locations in real time of multiple users.
