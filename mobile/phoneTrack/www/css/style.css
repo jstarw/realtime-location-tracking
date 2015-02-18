@@ -60,11 +60,11 @@ map {
 }
 
 .location-dot {
-	width: 70px;
-	height: 70px;
+	width: 15px;
+	height: 15px;
 	position: absolute;
-	bottom: 20%;
-	right: 15%;
+	top: 50%;
+	left: 50%;
 	background-color: blue;
 	border-radius: 50%;
 	text-align: center;

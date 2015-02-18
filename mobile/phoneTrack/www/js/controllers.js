@@ -5,6 +5,10 @@ angular.module('starter.controllers', [])
 
   var tracking = false;
   $scope.showLocation = false;
+  var mapOptions = {
+    zoom: 4,
+    disableDefaultUI: true
+  }
 
 
   $scope.mapCreated = function(map) {
@@ -12,11 +16,6 @@ angular.module('starter.controllers', [])
   };
 
   $scope.TrackMe = function () {
-  
-    var mapOptions = {
-      zoom: 4,
-      disableDefaultUI: true
-    }
 
     if(!tracking) {
       tracking = true;
