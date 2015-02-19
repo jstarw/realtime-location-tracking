@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
       }
 
       // Show loading icon
-      $scope.showSpinner(); //Show the location loading spinner
+      $scope.findingLocation = true; //Show the location loading spinner
 
       console.log("Finding Location");
       var myLocation = navigator.geolocation.watchPosition(function (pos) {
@@ -46,7 +46,9 @@ angular.module('starter.controllers', [])
         //Center the Map
         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
         $scope.showLocation = true; //Show the location dot on the map.
-        $scope.hideSpinner(); //Hide the location fetching spinner
+        $scope.$apply(function () {
+          $scope.findingLocation = false; //Hide the location fetching spinner
+        });
 
         //TODO: Update UI so user knows that tracking has begun
     
