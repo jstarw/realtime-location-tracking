@@ -13,8 +13,9 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
 	console.log("a client Connected");
 	socket.emit('message', 'If you see this message, then socket.io is working correctly');
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
+  socket.on('loc', function(loc){
+    console.log('location: ' + loc);
+    socket.broadcast.emit('loc', loc);
   });
   socket.on('disconnect', function(){
     console.log('a client disconnected');
