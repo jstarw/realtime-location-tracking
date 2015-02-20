@@ -55,29 +55,19 @@ angular.module('starter.controllers', [])
 
       }, function (error) {
         $scope.spinner = true; //Show the location loading spinner
+        // alert("error");
         //Beam error through websocket
+        stopTracking();
+        alert("Unable to find location. Please try again");
       }, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
     } else {
-      $scope.toggleUI();
-      tracking = false;
-      $scope.showLocation = false;
-      $scope.spinner = false; //Hide the location loading spinner
-      
-     
-
-      //TODO: Change the UI so it reflects that location is not being tracked.
-
-      console.log('stopping tracking');
-      if(myLocation) {
-        navigator.geolocation.clearWatch(myLocation);
-        console.log("clearning location watcher");
-      }
+      stopTracking();
     }
 
   };
 
   $scope.toggleUI = function() {
-    console.log("togglein ui");
+    console.log("toggleing ui");
     var button = document.getElementById("location-btn");
 
     if(!tracking) {
@@ -86,6 +76,21 @@ angular.module('starter.controllers', [])
       button.style.backgroundColor = "#13BE00";
     }
      
+  }
+
+  var stopTracking = function() {
+    $scope.toggleUI();
+    tracking = false;
+    $scope.showLocation = false;
+    $scope.$apply(function () {
+      $scope.spinner = false; //Hide the location fetching spinner
+    });
+
+    console.log('stopping tracking');
+    if( typeof myLocation !== 'undefined' && myLocation ) {
+      navigator.geolocation.clearWatch(myLocation);
+      console.log("clearning location watcher");
+    }
   }
 
 
