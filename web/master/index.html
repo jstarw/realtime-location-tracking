@@ -3,13 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Master Client</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/style.css">
+  
 </head>
 <body>
-  <h1>This is the master page</h1>
-  <p>If you click on me and I dissapear, then jquery is working.</p>
-  <div id="location"></div>
+  <div class="header">
+    <h1>Pelvis.</h1>
+    <div class="menu-button"><img src="images/icon-menu-white.png"/></div>
+  </div>
+  <div class="container">
+    <div id="map">
+      <div id="location"></div>
+    </div> 
+    <div id="menu">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut sem in diam pulvinar lacinia. Nunc a est leo. Suspendisse malesuada diam magna, a accumsan arcu ornare ut. Sed commodo finibus felis vitae gravida. Aliquam erat volutpat. Donec a turpis ex. Fusce interdum ante in aliquam ullamcorper. Vivamus a eleifend risus, in molestie felis. Donec pretium mi sed pharetra dignissim. Sed egestas metus vitae ex dapibus, vel vulputate lacus pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer elementum augue nisi, tempor imperdiet lorem sollicitudin et.
 
+Ut eu tempor felis, nec venenatis leo. Ut eget ligula felis. Vivamus tempus ex quis enim fringilla, non egestas mauris elementum. Integer aliquet ut sapien ut tempor. Aenean a nisi et sem laoreet fringilla non vel purus. Donec tristique libero lectus, in aliquet metus efficitur quis. Praesent tristique nibh ipsum, in ultrices arcu aliquet id. Aenean ex enim, gravida nec eros pulvinar, sollicitudin aliquam ipsum. Proin feugiat imperdiet lectus ac dictum. Nulla interdum nisl accumsan maximus malesuada. Cras ultrices neque a viverra ornare. Ut justo ligula, varius eget sapien sit amet, viverra facilisis nibh.
+    </div>
+    
+    <div class="footer">This is the footer.</div>
+  </div>
+  
+  
+  
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -23,5 +41,19 @@
       $('#location').append($('<li>').text('username: ' + loc.username + ', latitude: ' + loc.latitude + ', longitude: ' + loc.longitude))
     });
 	</script>
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Tvyccg69SFLyjHJXNgZksMY0Uk8qc8g">
+    </script>
+  <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </body>
 </html>

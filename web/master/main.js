@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    $("p").click(function(){
-        $(this).hide();
+    $(".menu-button").click(function() {
+      //$("#menu").toggle();
+      $("#menu").animate({width:'toggle'},225);
     });
 });
 
