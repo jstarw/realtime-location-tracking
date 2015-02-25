@@ -11,6 +11,20 @@ html, body {
 body > div {
   display:table-row;
 }
+ul {
+  padding:0;
+  margin:0;
+  background-color:blue;
+  
+}
+li {
+  list-style-type:none;
+  font-family: 'Open Sans', sans-serif;
+  font-size:1em;
+  color:white;
+  letter-spacing:0.1em;
+  padding:10px;
+}
 h1 {
   font-family: 'Lobster', sans-serif;
   font-size: 2.5em;
@@ -28,7 +42,7 @@ h1 {
 .header {
   width:100%;
   background-color:#4A3A47 ;
-  border-bottom: 2px solid gray;
+/*   border-bottom: 2px solid gray; */
   position:absolute;
   height: 65px;
   clear:both;
@@ -46,7 +60,7 @@ h1 {
   height:auto;
   float:left;
   position:absolute;
-  top:65px;
+  top:63px;
   bottom:0px;
   clear:both;
   overflow-y:scroll;
